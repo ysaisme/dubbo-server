@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dubbo-server</artifactId>
+        <groupId>com.ysa</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ysa</groupId>
+    <artifactId>rpc-dubbo-api</artifactId>
+    <version>${rpc-dubbo-api.version}</version>
+    <packaging>jar</packaging>
+
+
+    <distributionManagement>
+        <repository>
+            <!--此处的id必须和settings.xml中的server的id相同-->
+            <id>nexus</id>
+            <name>Nexus Release</name>
+            <url>http://localhost:9301/nexus/content/repositories/releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <!--此处的id必须和settings.xml中的server的id相同-->
+            <id>nexus</id>
+            <name>Nexus Snapshot</name>
+            <url>http://localhost:9301/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>
