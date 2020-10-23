@@ -19,7 +19,9 @@ dubbo:
       subscribed-services: dubbo-client
   consumer:
     timeout: 300000
+    retries: 0
   provider:
     timeout: 300000
+    retries: 0
 server:
   port: 9300
