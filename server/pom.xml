@@ -63,6 +63,12 @@
             <version>${rpc-dubbo-api.version}</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.ysa</groupId>
+            <artifactId>rpc-client-api</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 
 <!--    &lt;!&ndash; 仓库地址 &ndash;&gt;-->

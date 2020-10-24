@@ -15,5 +15,13 @@ dubbo:
     address: spring-cloud://localhost
   scan:
     base-packages: com.ysa.apiService
+  cloud:
+      subscribed-services: dubbo-client
+  consumer:
+    timeout: 300000
+    retries: 0
+  provider:
+    timeout: 300000
+    retries: 0
 server:
   port: 9300
