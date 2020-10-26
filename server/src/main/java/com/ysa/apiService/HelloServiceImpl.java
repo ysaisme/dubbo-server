@@ -1,8 +1,11 @@
 package com.ysa.apiService;
 
 import api.HelloService;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Service;
+
+import java.time.LocalDateTime;
 
 /**
  * @Author: ysd
@@ -16,7 +19,8 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String hello(String name) {
-        log.info("-> 调用服务端接口");
-        return "hello,这里是服务端接口~";
+        LocalDateTime date = LocalDateTime.now();
+        log.info("-> 调用服务端接口 {}", JSON.toJSONString(date));
+        return "hello,这里是服务端接口~ " + JSON.toJSONString(date);
     }
 }

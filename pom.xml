@@ -14,6 +14,14 @@
     <packaging>pom</packaging>
 
     <properties>
-        <rpc-dubbo-api.version>0.0.2</rpc-dubbo-api.version>
+        <rpc-dubbo-api.version>0.0.4</rpc-dubbo-api.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Repository</name>
+            <url>http://localhost:9301/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
 </project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false">
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(%X{RequestId}){magenta} %clr([%20.20t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %X{accountInfo} - %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}" />
+
+    <property name="LOG_HOME" value="/home/ubuntu/logs" />
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %X{RequestId}:每次请求唯一id %X{accountInfo}:登录人信息 %msg：日志消息，%n是换行符-->
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FILE"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/console.log.%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        	 <maxHistory>10</maxHistory>
+        	 <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %X{RequestId}:每次请求唯一id %X{accountInfo}:登录人信息 %msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %X{RequestId} - %X{accountInfo} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<logger name="com.retry.unex.model" level="info"/>
+	<logger name="com.retry.unex.model.mapper.product.TProductImportMapper" level="error"/>
+    <logger name="com.retry.unex" level="info"/>
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

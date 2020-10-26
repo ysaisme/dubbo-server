@@ -67,27 +67,9 @@
         <dependency>
             <groupId>com.ysa</groupId>
             <artifactId>rpc-client-api</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.4</version>
         </dependency>
     </dependencies>
-
-<!--    &lt;!&ndash; 仓库地址 &ndash;&gt;-->
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>public</id>-->
-<!--            <name>Public Repositories</name>-->
-<!--            <url>http://localhost:9301/repository/maven-public/</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
-
-<!--    &lt;!&ndash; 插件地址 &ndash;&gt;-->
-<!--    <pluginRepositories>-->
-<!--        <pluginRepository>-->
-<!--            <id>public</id>-->
-<!--            <name>Public Repositories</name>-->
-<!--            <url>http://localhost:9301/repository/maven-public/</url>-->
-<!--        </pluginRepository>-->
-<!--    </pluginRepositories>-->
 
     <dependencyManagement>
         <dependencies>
