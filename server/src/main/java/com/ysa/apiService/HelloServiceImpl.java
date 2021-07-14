@@ -4,6 +4,8 @@ import api.HelloService;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Service;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 import java.time.LocalDateTime;
 
@@ -15,12 +17,16 @@ import java.time.LocalDateTime;
  */
 @Slf4j
 @Service
+@RefreshScope
 public class HelloServiceImpl implements HelloService {
+
+    @Value("${ysa.name}")
+    private String ysa;
 
     @Override
     public String hello(String name) {
         LocalDateTime date = LocalDateTime.now();
-        log.info("-> 调用服务端接口 {}", JSON.toJSONString(date));
-        return "hello,这里是服务端接口~ " + JSON.toJSONString(date);
+        log.info("-> 调用服务端接口 {} {} {}", name, JSON.toJSONString(date), ysa);
+        return "hello,这里是服务端接口~ " + name + JSON.toJSONString(date) + ysa;
     }
 }

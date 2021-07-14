@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ysa.model.mapper.order.OrderOrdersMapper">
+  <resultMap id="BaseResultMap" type="com.ysa.model.entity.order.OrderOrdersDO">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="addr_username" jdbcType="VARCHAR" property="addrUsername" />
+    <result column="addr_phone" jdbcType="VARCHAR" property="addrPhone" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="last_pay_time" jdbcType="TIMESTAMP" property="lastPayTime" />
+    <result column="logistics_no" jdbcType="VARCHAR" property="logisticsNo" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_at" jdbcType="INTEGER" property="createAt" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_at" jdbcType="INTEGER" property="updateAt" />
+    <result column="remove_flag" jdbcType="BIT" property="removeFlag" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+</mapper>

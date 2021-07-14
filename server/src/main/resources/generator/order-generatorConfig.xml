@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+            <property name="caseSensitive" value="true"/>
+        </plugin>
+        
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/test"
+                        userId="ysa"
+                        password="123456Ysa">
+        </jdbcConnection>
+        <javaModelGenerator targetPackage="com.ysa.model.entity.order"
+                            targetProject="D:\idea project\dubbo-server\server\src\main\java">
+            <!-- 是否对数据库查询结果进行trim操作
+            <property name="trimStrings" value="true"/>
+            -->
+        </javaModelGenerator>
+
+        <!--
+        	生成sql映射xml文件，如果 javaClientGenerator 的type配置为XMLMAPPER时，则必须-->
+        <sqlMapGenerator targetPackage="mapper.order"
+                        targetProject="D:\idea project\dubbo-server\server\src\main\resources"/>
+
+        <!--
+        	生成dao接口(Mapper接口)
+        	type可选范围：ANNOTATEDMAPPER 基于注解的Mapper接口，不会有对应的XML映射文件
+                    XMLMAPPER 所有的方法都在XML中，接口调用依赖XML文件。-->
+        <javaClientGenerator targetPackage="com.ysa.model.mapper.order"
+                             targetProject="D:\idea project\dubbo-server\server\src\main\java" type="XMLMAPPER" >
+            <property name="rootInterface" value="com.ysa.model.base.MyMapper" />
+        </javaClientGenerator>
+
+
+        <table tableName="t_order_order_items" domainObjectName="OrderOrderItemsDO" mapperName="OrderOrderItemsMapper">
+            <property name="rootInterface" value="com.ysa.model.base.MyMapper" />
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+
+       
+    </context>
+</generatorConfiguration>

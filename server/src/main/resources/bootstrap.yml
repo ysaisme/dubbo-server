@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: dubbo-server
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        prefix: dubbo-server
+      discovery:
+        server-addr: 127.0.0.1:8848
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      config:
+        namespace: aa07effd-ee68-450a-af1b-f1f62530fd2b
+      discovery:
+        namespace: aa07effd-ee68-450a-af1b-f1f62530fd2b
+---
+spring:
+  profiles: test
+  cloud:
+    nacos:
+      config:
+        namespace: 40e5df29-7812-49dc-9c80-bccf546d8673
+      discovery:
+        namespace: 40e5df29-7812-49dc-9c80-bccf546d8673
+---
+spring:
+  profiles: prod
+  cloud:
+    nacos:
+      config:
+        namespace: d44fee13-e4f1-4377-8972-fafb6741ea8c
+      discovery:
+        namespace: d44fee13-e4f1-4377-8972-fafb6741ea8c
