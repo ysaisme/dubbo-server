@@ -9,6 +9,30 @@ spring:
         prefix: dubbo-server
       discovery:
         server-addr: 127.0.0.1:8848
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  # 事务群组（可以每个应用独立取名，也可以使用相同的名称） 要与服务端nacos-config.txt中service.vgroup_mapping的后缀对应
+  tx-server-group: ${spring.application.name}-tx-group
+  config:
+    type: nacos
+    nacos:
+      namespace: 2c99214b-4d3e-49b9-8247-7666e78fd3fb
+      server-addr: 127.0.0.1:8848
+      # 需要server端（registry和config）, nacos配置client（registry和config）保持一致
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+  registry:
+    type: nacos
+    nacos:
+      namespace: 2c99214b-4d3e-49b9-8247-7666e78fd3fb
+      # 需要server端保持一致, 即server在nacos中的名称 默认seata-server
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
 ---
 spring:
   profiles: dev
